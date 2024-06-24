@@ -29,41 +29,43 @@ export const estructura = async()=>{
 
         let status = tarea.status;
         let plantilla = "";
-        if (status == "enEspera") {
+        if (status === "enEspera") {
             total_tareas++;
             enEspera++;
-
             plantilla = `
-            <div class="plantilla1">
-                <div id="eS1" class="elementSection" title="${NombreTarea}">
-                    <p class="elementTItle">${NombreTarea}</p>
-                </div>
-                <div id="eS2" class="elementSection" title="Edit">
-                    <img onclick="finished(this)" id="${Idtarea}" class="elementBtn" src="storage/media/check.png" title="Finished">
-                    <img onclick="removeElement(this)" id="${Idtarea}" class="elementBtn" src="storage/media/delete.png" title="Delete">
-                </div>
-            </div>`;
-        }else if (status == "listo"){
+                <article class="espera">
+                    <span class="tareas">${NombreTarea}</span>
+                    <div class="imagenes_chek_delete">
+                        <div class="contenedor_chek">
+                            <img onclick="finalizado(this)" id="${Idtarea}" src="https://www.svgrepo.com/show/500802/check.svg" alt="Finished">
+                        </div>
+                        <div class="contenedor_delete">
+                            <img onclick="eliminarElemento(this)" id="${Idtarea}" src="https://www.svgrepo.com/show/491509/trash.svg" alt="Delete">
+                        </div>
+                    </div>
+                </article>`;
+        } else if (status === "listo") {
             total_tareas++;
             listo++;
-
-            plantilla =`
-            <div class="element2">
-                <div id="eS1" class="elementSection" title="${NombreTarea}">
-                    <p class="elementTItle2">${NombreTarea}</p>
-                </div>
-                <div id="eS2" class="elementSection" title="Edit">
-                    <img onclick="finished(this)" id="${Idtarea}" class="elementBtn" src="storage/media/return.png" title="Finished">
-                    <img onclick="removeElement(this)" id="${Idtarea}" class="elementBtn" src="storage/media/delete.png" title="Delete">
-                </div>
-            </div> 
-            `;
+            plantilla = `
+                <article class="contenedor_finish">
+                    <del><span class="span_task">${NombreTarea}</span></del>
+                    <div class="imagenes_chek_delete">
+                        <div class="contenedor_chek">
+                            <img onclick="finalizado(this)" id="${Idtarea}" src="https://www.svgrepo.com/show/500802/check.svg" alt="Finished">
+                        </div>
+                        <div class="contenedor_delete">
+                            <img onclick="eliminarElemento(this)" id="${Idtarea}" src="https://www.svgrepo.com/show/491509/trash.svg" alt="Delete">
+                        </div>
+                    </div>
+                </article>`;
         }
         info1.innerHTML = total_tareas;
         info2.innerHTML = enEspera;
         info3.innerHTML = listo;
         resultado.innerHTML += plantilla;
     });
+    
 };
 
 

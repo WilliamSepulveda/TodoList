@@ -4,7 +4,7 @@ await estructura();
 
 let Agregarbtn = document.querySelector(".buscador");
 
-Agregarbtn.addEventListener("click", async ()=>{
+Agregarbtn.addEventListener("change", async ()=>{
     let tarea = document.querySelector("#input");
     tarea = tarea.value;
 
@@ -19,6 +19,7 @@ const eliminarElemento =async (Elemento) =>{
     await eliminar(id);
     await estructura();
 };
+document.eliminarElemento = eliminarElemento;
 
 const finalizado = async (Elemento)=>{
     let id = Elemento.id;
@@ -26,7 +27,7 @@ const finalizado = async (Elemento)=>{
     await status(id);
     await estructura();
 };
-
+document.finalizado = finalizado;
 let container = document.querySelector("#date");
 
 function actualizarFechaHora() {
