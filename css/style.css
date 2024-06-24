@@ -180,3 +180,28 @@ header h3{
 .contenedor_finish .imagenes_chek_delete img{
     width: 100%;
 }
+
+#searchinput:focus{
+    outline: none;
+}
+
+.dateDiv{
+    display: grid;
+    grid-template-columns: calc(100% - 100px) 100px;
+    grid-template-rows: repeat(3, 1fr);
+    width: 80%;
+}
+.dateDivSection{
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#info1{
+    color: rgb(241, 0, 0);
+}
+#info2{
+    color: rgb(0, 255, 42);
+}
+#info3{
+    color: rgb(166, 0, 255);
+}
